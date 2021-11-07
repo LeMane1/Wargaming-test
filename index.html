@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Wargaming</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <app></app>
+    </div>
+    <template id="app-temp">
+      <div class="main-wrapper">
+        <div class="title">
+          <img src="./icons/main-icon.png" alt="main-icon" class="title-icon" />
+          <div class="title-text">
+            <p class="title-subtitle-1">Unstoppable</p>
+            <p class="title-subtitle-2">Survivability</p>
+            <p class="title-subtitle-3">Legendary skill</p>
+          </div>
+        </div>
+        <div class="selected-wrapper">
+          <div class="selected-container">
+            <img
+              src="./icons/chekmark-icon.png"
+              alt="Selected"
+              class="selected-icon"
+            />
+            <p class="selected-title">Selected</p>
+          </div>
+          <p class="selected-text">
+            Reduce engine repair time. At last mastery level gain reduced
+            mobility with disabled engine.
+          </p>
+          <div class="skills">
+            <div class="skill" v-for="skill in skills" :key="skill.id">
+              <button
+                class="skill-btn"
+                @click="selected = skill.id"
+                :class="{active: skill.id === selected }"
+              >
+                <div class="skill-image-cont">
+                  <img
+                    :src="skill.image"
+                    alt="Skill image"
+                    class="skill-image"
+                  />
+                  <p class="skill-title">{{skill.title}}</p>
+                </div>
+                <div class="skill-desc-cont">
+                  <p class="skill-desc">{{skill.desc}}</p>
+                  <div class="line-cont"></div>
+                  <p class="skill-bonus">{{skill.bonus}}</p>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
